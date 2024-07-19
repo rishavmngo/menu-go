@@ -109,7 +109,15 @@ func (menu *Menu) Display() {
 	defer ui.Stop()
 
 mainLoop:
-	for menu.running {
+	for {
+
+		if !menu.running {
+			cancel()
+			close(inpChan)
+			break mainLoop
+
+		}
+
 		select {
 		case inp := <-inpChan:
 			switch inp {
