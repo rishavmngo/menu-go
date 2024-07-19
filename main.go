@@ -31,5 +31,5 @@ func main() {
 	Duration.Add("120", nil)
 
 	menu.Display()
-	fmt.Println("hello")
+	fmt.Println("helo")
 }
