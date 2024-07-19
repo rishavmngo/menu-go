@@ -113,7 +113,6 @@ mainLoop:
 
 		if !menu.running {
 			cancel()
-			close(inpChan)
 			break mainLoop
 
 		}
