@@ -112,6 +112,7 @@ mainLoop:
 	for {
 
 		if !menu.running {
+			term.Restore(int(os.Stdin.Fd()), oldState)
 			cancel()
 			break mainLoop
 
