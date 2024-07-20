@@ -19,8 +19,9 @@ type Node struct {
 }
 
 type Menu struct {
-	Main    *Node
-	running bool
+	Main        *Node
+	running     bool
+	currentHead **Node
 }
 
 func (menu *Menu) IsRunning() bool {
@@ -31,6 +32,13 @@ func (menu *Menu) Exit() {
 
 	menu.running = false
 
+}
+
+func (menu *Menu) Back() {
+
+	if (*(menu.currentHead)).parent != nil {
+		*(menu.currentHead) = (*(menu.currentHead)).parent
+	}
 }
 
 func (menu *Menu) Display() {
@@ -51,7 +59,7 @@ mainLoop:
 
 		}
 
-		ClearScreenStandalone()
+		clearScreenStandalone()
 		headingOfList(head, &buffer, currentItem)
 		getListItems(head, &buffer, currentItem)
 
@@ -89,6 +97,7 @@ mainLoop:
 			expand(&head, currentItem)
 		default:
 		}
+		menu.currentHead = &head
 	}
 
 }

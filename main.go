@@ -25,7 +25,11 @@ func main() {
 
 	Duration := settings.Add("Duration", nil)
 
-	Duration.Add("10", nil)
+	Duration.Add("10", func() {
+
+		menu.Back()
+
+	})
 	Duration.Add("30", nil)
 	Duration.Add("60", nil)
 	Duration.Add("120", nil)

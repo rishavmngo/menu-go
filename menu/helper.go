@@ -44,7 +44,7 @@ func canCollapse(head *Node) bool {
 
 }
 
-func ClearScreenStandalone() {
+func clearScreenStandalone() {
 
 	fmt.Print("\033[2J") // Clear the screen
 	fmt.Print("\033[H")  // Move the cursor to the top-left corner
@@ -55,7 +55,7 @@ func getListItems(head *Node, buffer *bytes.Buffer, currentItem *models.CurrentI
 	for index, item := range head.childrens {
 		if index == getActiveItemIndex(len(head.childrens), currentItem) {
 			buffer.WriteString(bold)
-			buffer.WriteString(Yellow)
+			buffer.WriteString(yellow)
 			buffer.WriteString(fmt.Sprintf("> "))
 
 		} else {
@@ -67,7 +67,7 @@ func getListItems(head *Node, buffer *bytes.Buffer, currentItem *models.CurrentI
 
 }
 
-var Yellow = "\033[33m"
+var yellow = "\033[33m"
 
 var reset = "\033[0m"
 var bold = "\033[1m"
